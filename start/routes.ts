@@ -25,6 +25,8 @@ Route.get('/', async () => {
 })
 
 Route.post('users', 'UsersController.store')
+Route.post('/login', 'SessionsController.login')
+Route.post('/logout', 'SessionsController.logout')
 
 Route.group(() => {
   Route.resource('users', 'UsersController').only(['show', 'update', 'destroy'])
