@@ -23,3 +23,9 @@ import Route from '@ioc:Adonis/Core/Route'
 Route.get('/', async () => {
   return { hello: 'Kinobabos !' }
 })
+
+Route.post('users', 'UsersController.store')
+
+Route.group(() => {
+  Route.resource('users', 'UsersController').only(['show', 'update', 'destroy'])
+}).middleware(['auth'])
