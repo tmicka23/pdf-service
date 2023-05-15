@@ -5,4 +5,4 @@ coverage
 .DS_STORE
 .env
 tmp
-db.sqlite3
+database/db.sqlite3
