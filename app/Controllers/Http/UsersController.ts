@@ -9,7 +9,10 @@ export default class UsersController {
 
       response.status(201).json(user);
     } catch (error) {
-      response.send(error);
+      if (error.status) {
+        return response.status(error.status).send(error)
+      }
+      response.status(400).send(error)
     }
   }
 
@@ -23,7 +26,10 @@ export default class UsersController {
         response.status(401).json({message: 'Unauthorized'})
       }
     } catch (error) {
-      response.send(error);
+      if (error.status) {
+        return response.status(error.status).send(error)
+      }
+      response.status(400).send(error)
     }
   }
 
@@ -39,7 +45,10 @@ export default class UsersController {
         response.status(401).json({message: 'Unauthorized'})
       }
     } catch (error) {
-      response.send(error);
+      if (error.status) {
+        return response.status(error.status).send(error)
+      }
+      response.status(400).send(error)
     }
   }
 
@@ -55,7 +64,10 @@ export default class UsersController {
         response.status(401).json({message: 'Unauthorized'})
       }
     } catch (error) {
-      response.status(error.status).send(error);
+      if (error.status) {
+        return response.status(error.status).send(error)
+      }
+      response.status(400).send(error)
     }
   }
 }
