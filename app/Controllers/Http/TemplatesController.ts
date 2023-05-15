@@ -3,9 +3,11 @@ import Template from 'App/Models/Template'
 
 export default class TemplatessController {
 
-  public async index({ response }: HttpContextContract) {
+  public async index({ response, auth }: HttpContextContract) {
     try {
-      const templates = await Template.all()
+      const currentUser = auth.use('api').user
+      await currentUser.load('templates')
+      const templates = currentUser.templates
 
       response.status(200).json(templates)
     } catch (error) {
@@ -13,9 +15,10 @@ export default class TemplatessController {
     }
   }
 
-  public async store({request, response }: HttpContextContract) {
+  public async store({ request, response, auth }: HttpContextContract) {
     try {
-      const template = await Template.create({ ...request.only(['name']) })
+      const currentUser = auth.use('api').user
+      const template = await Template.create({ ...request.only(['name']), userId: currentUser.id })
 
       response.status(201).json(template)
     } catch (error) {
@@ -23,9 +26,12 @@ export default class TemplatessController {
     }
   }
 
-  public async show({params, response }: HttpContextContract) {
+  public async show({ params, response, auth }: HttpContextContract) {
     try {
-      const template = await Template.findOrFail(params.id)
+      const currentUser = auth.use('api').user
+      await currentUser.load('templates')
+      const templates = currentUser.templates
+      const template = await templates.findOrFail(params.id)
 
       response.status(200).json(template)
     } catch (error) {
@@ -33,9 +39,12 @@ export default class TemplatessController {
     }
   }
 
-  public async update({params, response, request }: HttpContextContract) {
+  public async update({ params, response, request, auth }: HttpContextContract) {
     try {
-      const template = await Template.findOrFail(params.id)
+      const currentUser = auth.use('api').user
+      await currentUser.load('templates')
+      const templates = currentUser.templates
+      const template = await templates.findOrFail(params.id)
       await template.merge({ ...request.only(['name']) }).save()
 
       response.status(200).json(template)
@@ -44,9 +53,12 @@ export default class TemplatessController {
     }
   }
 
-  public async destroy({params, response }: HttpContextContract) {
+  public async destroy({ params, response, auth }: HttpContextContract) {
     try {
-      const template = await Template.findOrFail(params.id)
+      const currentUser = auth.use('api').user
+      await currentUser.load('templates')
+      const templates = currentUser.templates
+      const template = await templates.findOrFail(params.id)
       await template.delete()
 
       response.status(204)

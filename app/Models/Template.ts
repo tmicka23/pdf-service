@@ -8,6 +8,9 @@ export default class Template extends BaseModel {
   @column({})
   public name: string
 
+  @column({})
+  public userId: string
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 
