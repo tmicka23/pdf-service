@@ -39,6 +39,12 @@ devDependencies:
   '@adonisjs/assembler':
     specifier: ^5.9.5
     version: 5.9.5(@adonisjs/core@5.9.0)(typescript@4.6.4)
+  '@japa/api-client':
+    specifier: ^1.4.4
+    version: 1.4.4(@japa/runner@2.5.1)
+  '@japa/assert':
+    specifier: ^1.4.1
+    version: 1.4.1(@japa/runner@2.5.1)(openapi-types@12.1.0)
   '@japa/preset-adonis':
     specifier: ^1.2.0
     version: 1.2.0(@adonisjs/core@5.9.0)(@japa/runner@2.5.1)(openapi-types@12.1.0)

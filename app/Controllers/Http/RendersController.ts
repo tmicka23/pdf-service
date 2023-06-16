@@ -31,7 +31,7 @@ export default class RendersController {
           return reject(error)
         }
 
-        const fileName = `${Date.now()}`
+        const fileName = `render-${Date.now()}`
 
         await Drive.put(`renders/render-${fileName}.pdf`, result)
         const file = await Drive.get(`renders/render-${fileName}.pdf`)
