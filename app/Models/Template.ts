@@ -1,5 +1,9 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, computed } from '@ioc:Adonis/Lucid/Orm'
+import {
+  attachment,
+  AttachmentContract
+} from '@ioc:Adonis/Addons/AttachmentLite'
 
 export default class Template extends BaseModel {
   @column({ isPrimary: true })
@@ -10,6 +14,14 @@ export default class Template extends BaseModel {
 
   @column({})
   public userId: string
+
+  @attachment({ disk: 'local', preComputeUrl: true, folder: 'templates' })
+  public file: AttachmentContract
+
+  @computed()
+  public get fileUrl(): string {
+    return this.file ? this.file.url : ''
+  }
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

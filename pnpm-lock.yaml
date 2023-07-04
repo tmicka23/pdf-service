@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@adonisjs/attachment-lite':
+    specifier: ^1.0.7
+    version: 1.0.7(@adonisjs/core@5.9.0)(@adonisjs/lucid@18.3.0)
   '@adonisjs/auth':
     specifier: ^8.2.3
     version: 8.2.3(@adonisjs/application@5.3.0)(@adonisjs/core@5.9.0)(@adonisjs/lucid@18.3.0)
@@ -117,6 +120,17 @@ packages:
       - supports-color
       - typescript
     dev: true
+
+  /@adonisjs/attachment-lite@1.0.7(@adonisjs/core@5.9.0)(@adonisjs/lucid@18.3.0):
+    resolution: {integrity: sha512-LIMVQ1ejrsDfzUAWwhL7W8GnWBFkEn9SvnY8Q8FnTihYD+Mjt3TO7Nxt5JhO3ZtuuvzcJMQUrH6xjYC4p/Yb8Q==}
+    peerDependencies:
+      '@adonisjs/core': ^5.3.0
+      '@adonisjs/lucid': ^17.0.0 || ^18.0.0
+    dependencies:
+      '@adonisjs/core': 5.9.0
+      '@adonisjs/lucid': 18.3.0(@adonisjs/application@5.3.0)(@adonisjs/core@5.9.0)(sqlite3@5.1.6)
+      '@poppinss/utils': 4.0.4
+    dev: false
 
   /@adonisjs/auth@8.2.3(@adonisjs/application@5.3.0)(@adonisjs/core@5.9.0)(@adonisjs/lucid@18.3.0):
     resolution: {integrity: sha512-js9e8AHEsNC/8MGvho6MgL+uXr8SlhTg9MJJDWQBBiqsKkT7+H7NMP/pLbuSzYaaf40t2u/OXfq6wXuIC5ZYvw==}
