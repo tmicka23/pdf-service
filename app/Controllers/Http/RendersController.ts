@@ -5,7 +5,6 @@ import Template from 'App/Models/Template'
 import Application from '@ioc:Adonis/Core/Application'
 
 
-
 export default class RendersController {
   public async render({ request, auth, response }: HttpContextContract): Promise<void> {
     try {
@@ -31,11 +30,12 @@ export default class RendersController {
           return reject(error)
         }
 
+        /* Only for course needs */
         const fileName = `render-${Date.now()}`
-
         await Drive.put(`renders/render-${fileName}.pdf`, result)
-        const file = await Drive.get(`renders/render-${fileName}.pdf`)
-        return resolve(file)
+        /* Only for course needs */
+
+        return resolve(result)
       });
     })
   }
