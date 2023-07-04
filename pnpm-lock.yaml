@@ -16,6 +16,9 @@ dependencies:
   '@adonisjs/repl':
     specifier: ^3.1.0
     version: 3.1.11(@adonisjs/core@5.9.0)
+  carbone:
+    specifier: ^3.5.5
+    version: 3.5.5
   luxon:
     specifier: ^3.3.0
     version: 3.3.0
@@ -36,6 +39,12 @@ devDependencies:
   '@adonisjs/assembler':
     specifier: ^5.9.5
     version: 5.9.5(@adonisjs/core@5.9.0)(typescript@4.6.4)
+  '@japa/api-client':
+    specifier: ^1.4.4
+    version: 1.4.4(@japa/runner@2.5.1)
+  '@japa/assert':
+    specifier: ^1.4.1
+    version: 1.4.1(@japa/runner@2.5.1)(openapi-types@12.1.0)
   '@japa/preset-adonis':
     specifier: ^1.2.0
     version: 1.2.0(@adonisjs/core@5.9.0)(@japa/runner@2.5.1)(openapi-types@12.1.0)
@@ -1284,6 +1293,10 @@ packages:
       fill-range: 7.0.1
     dev: true
 
+  /buffer-crc32@0.2.13:
+    resolution: {integrity: sha512-VO9Ht/+p3SN7SKWqcrgEzjGbRSJYTx+Q1pTQC0wrWqHx0vpJraQ6GtHx8tvcg1rlK1byhU5gccxgOgj7B0TDkQ==}
+    dev: false
+
   /buffer-from@1.1.2:
     resolution: {integrity: sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==}
 
@@ -1375,6 +1388,21 @@ packages:
       no-case: 3.0.4
       tslib: 2.5.0
       upper-case-first: 2.0.2
+
+  /carbone@3.5.5:
+    resolution: {integrity: sha512-timDDy9nCW3R7YqgV1i6aFdbaZ12TNWmdGVv8zzurZa2u6p4iqHaWjiuxfqJV4Sn/0bCKoc7iC0n7j9QOpyP/w==}
+    engines: {node: '>= 12.14.0'}
+    hasBin: true
+    dependencies:
+      dayjs: 1.11.7
+      dayjs-timezone-iana-plugin: 0.1.0
+      debug: 4.3.4
+      which: 2.0.2
+      yauzl: 2.10.0
+      yazl: 2.5.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
 
   /cardinal@2.1.1:
     resolution: {integrity: sha512-JSr5eOgoEymtYHBjNWyjrMqet9Am2miJhlfKNdqLp6zoeAh0KN5dRAcxlecj5mAJrmQomgiOBj35xHLrFjqBpw==}
@@ -1703,6 +1731,14 @@ packages:
 
   /dateformat@4.6.3:
     resolution: {integrity: sha512-2P0p0pFGzHS5EMnhdxQi7aJN+iMheud0UhG4dlE1DLAlvL8JHjJJTX/CSm4JXwV0Ka5nGk3zC5mcb5bUQUxxMA==}
+
+  /dayjs-timezone-iana-plugin@0.1.0:
+    resolution: {integrity: sha512-xc8cIZmi4oKr2nfu41I/FDWZKa8n8YaRMxSz9MrpXTNo8c6ZsjZuIoy5RPNmLXPqntFuITWI8obB7lUA+CdzGQ==}
+    dev: false
+
+  /dayjs@1.11.7:
+    resolution: {integrity: sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ==}
+    dev: false
 
   /debug@2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
@@ -2060,6 +2096,12 @@ packages:
     dependencies:
       reusify: 1.0.4
     dev: true
+
+  /fd-slicer@1.1.0:
+    resolution: {integrity: sha512-cE1qsB/VwyQozZ+q1dGxR8LBYNZeofhEdUNGSMbQD3Gw2lAzX9Zb3uIU6Ebc/Fmyjo9AWWfnn0AUCHqtevs/8g==}
+    dependencies:
+      pend: 1.2.0
+    dev: false
 
   /file-type@16.5.4:
     resolution: {integrity: sha512-/yFHK0aGjFEgDJjEKP0pWCplsPFPhwyfwevf/pVxiN0tmE4L9LmwWxWukdJSHdoCli4VgQLehjJtwQBnqmsKcw==}
@@ -3702,6 +3744,10 @@ packages:
     resolution: {integrity: sha512-ZI3LnwUv5nOGbQzD9c2iDG6toheuXSZP5esSHBjopsXH4dg19soufvpUGA3uohi5anFtGb2lhAVdHzH6R/Evvg==}
     engines: {node: '>=8'}
 
+  /pend@1.2.0:
+    resolution: {integrity: sha512-F3asv42UuXchdzt+xXqfW1OGlVBe+mxa2mqI0pg5yAHZPvFmY3Y6drSf/GQ1A86WgWEN9Kzh/WrgKa6iGcHXLg==}
+    dev: false
+
   /pg-connection-string@2.5.0:
     resolution: {integrity: sha512-r5o/V/ORTA6TmUnyWZR9nCj1klXCO2CEKNRlVuJptZe85QuhFayC7WeMic7ndayT5IRIR0S0xFxFi2ousartlQ==}
     dev: false
@@ -4790,6 +4836,19 @@ packages:
     resolution: {integrity: sha512-CBKFWExMn46Foo4cldiChEzn7S7SRV+wqiluAb6xmueD/fGyRHIhX8m14vVGgeFWjN540nKCNVj6P21eQjgTuA==}
     engines: {node: '>= 14'}
     dev: true
+
+  /yauzl@2.10.0:
+    resolution: {integrity: sha512-p4a9I6X6nu6IhoGmBqAcbJy1mlC4j27vEPZX9F4L4/vZT3Lyq1VkFHw/V/PUcB9Buo+DG3iHkT0x3Qya58zc3g==}
+    dependencies:
+      buffer-crc32: 0.2.13
+      fd-slicer: 1.1.0
+    dev: false
+
+  /yazl@2.5.1:
+    resolution: {integrity: sha512-phENi2PLiHnHb6QBVot+dJnaAZ0xosj7p3fWl+znIjBDlnMI2PsZCJZ306BPTFOaHf5qdDEI8x5qFrSOBN5vrw==}
+    dependencies:
+      buffer-crc32: 0.2.13
+    dev: false
 
   /youch-terminal@2.2.0:
     resolution: {integrity: sha512-LLYtvG/4XoRO/vhf2eBkzT6dI1hWliLSp7NuXRKsvBAITuIxODS61X7AQOHl5Aaf8oquS9JlHSpjTFjX140XKA==}

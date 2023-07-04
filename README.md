@@ -4,19 +4,21 @@
 
 ## Installation
 
-> This app use `node` current lts version,  `pnpm` as package manager & `sqlite3` as database
+> This app use `node` current lts version,  `pnpm` as package manager, `sqlite3` as database & `libreoffice` as render engine
 
 ```bash
 node -v # -> 18.16.0
 # if you use a different version of node
-nvm install 18.16.0
-# or if you use `volta``
-volta install node@18.16.0
+nvm install --lts
+# or if you use `volta`
+volta install node@lts
 
 npm i -g pnpm
 pnpm install
 
 touch db.sqlite3
+
+brew update && brew install libreoffice
 
 node ace serve --watch
 ```

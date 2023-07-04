@@ -31,4 +31,5 @@ Route.post('/logout', 'SessionsController.logout')
 Route.group(() => {
   Route.resource('users', 'UsersController').only(['show', 'update', 'destroy'])
   Route.resource('templates', 'TemplatesController').only(['index', 'store', 'show', 'update', 'destroy'])
+  Route.post('/renders', 'RendersController.render')
 }).middleware(['auth'])
